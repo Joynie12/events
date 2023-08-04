@@ -1,0 +1,30 @@
+image: Visual Studio 2019
+
+build:
+  project: your_project.sln 
+  publish_nuget: false       
+  parallel: false           
+
+environment:
+  matrix:
+    - nodejs_version: "14"   
+
+build_script:
+  - ps: Install-Product node $env:nodejs_version 
+  - npm install              
+  - npm run build           
+
+deploy_script:
+  - ps: >-
+      if ($env:main) {
+        cd dist  
+        git init
+        git config user.name "Joynie12"
+        git config user.email "bigw199412@gmail.com"
+        git add .
+        git commit -m "Deploy to GitHub Pages"
+        git push --force "https://$env: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@github.com/Joynie12/https://github.com/Joynie12/events.git" master:gh-pages
+      }
+
+cache:
+  - node_modules -> package.json
