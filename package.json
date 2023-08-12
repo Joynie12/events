@@ -6,6 +6,7 @@
   "author": "Joynie12 <bigw199412@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js --open",
     "build": "webpack --mode production"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
-    "style-loader": "^3.3.3"
+    "style-loader": "^3.3.3",
+    "webpack-dev-server": "^4.15.1"
   }
 }

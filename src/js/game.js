@@ -1,10 +1,14 @@
-class Game {
+import Goblin from './goblin';
+import Board from './board';
+
+export default class Game {
   constructor() {
     this.score = 0;
     this.missedGoblins = 0;
     this.goblinInterval = null;
+    this.board = new Board(); // Добавляем игровое поле
 
-    this.scoreboardElement = document.getElementById('scoreboard');
+    this.scoreboardElement = document.getElementById('score');
     this.missedElement = document.getElementById('missed');
     this.startButton = document.getElementById('start-button');
 
@@ -39,7 +43,7 @@ class Game {
     goblin.onMissed(() => {
       this.handleGoblinMissed();
     });
-    goblin.spawn();
+    goblin.spawn(this.board.getRandomCell());
   }
 
   handleGoblinHit() {

@@ -16,14 +16,26 @@ h1 {
   margin: 0 auto;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Отступ между ячейками */
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .cell {
   width: 100px;
   height: 100px;
   background-color: #eee;
   border: 1px solid #ccc;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
-
 /* .goblin {
   width: 80px;
   height: 80px;
